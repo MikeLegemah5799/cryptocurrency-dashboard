@@ -3,13 +3,16 @@ import "./App.css";
 import Welcome from "./Components/welcome/welcome-message.component";
 import AppLayout from "./Components/AppLayout/AppLayout";
 import AppBar from "./Components/AppBar/AppBar";
+import { AppProvider } from "./AppProvider";
 
 class App extends Component {
   render() {
     return (
       <AppLayout>
-        <AppBar />
-        <Welcome />
+        <AppProvider>
+          <AppBar />
+          <Welcome />
+        </AppProvider>
       </AppLayout>
     );
   }
