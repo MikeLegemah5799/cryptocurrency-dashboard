@@ -1,6 +1,6 @@
 import React from "react";
 import { AppContext } from "../App/AppProvider";
-import App from "../App";
+//import App from "../App";
 
 export default function(props) {
   return (
