@@ -59,9 +59,12 @@ const PriceTileStyled = styled(SelectableTile)`
     `}
 `;
 
-function PriceTile({ sym, data, currentFavorite }) {
+function PriceTile({ sym, data, currentFavorite, setCurrentFavorite }) {
   return (
-    <PriceTileStyled currentFavorite={currentFavorite}>
+    <PriceTileStyled
+      onClick={setCurrentFavorite}
+      currentFavorite={currentFavorite}
+    >
       <CoinHeaderGridStyled>
         <div>{sym}</div>
         <ChangePercent data={data} />
@@ -71,9 +74,13 @@ function PriceTile({ sym, data, currentFavorite }) {
   );
 }
 
-function PriceTileCompact({ sym, data, currentFavorite }) {
+function PriceTileCompact({ sym, data, currentFavorite, setCurrentFavorite }) {
   return (
-    <PriceTileStyled compact currentFavorite={currentFavorite}>
+    <PriceTileStyled
+      onClick={setCurrentFavorite}
+      compact
+      currentFavorite={currentFavorite}
+    >
       <JustifyLeft>{sym}</JustifyLeft>
       <ChangePercent data={data} />
       <div>${numberFormat(data.PRICE)}</div>
@@ -88,14 +95,14 @@ export default function({ price, index }) {
 
   return (
     <AppContext.Consumer>
-      {({ currentFavorite }) => (
+      {({ currentFavorite, setCurrentFavorite }) => (
         <TileClass
           sym={sym}
           data={data}
-          ccurrentFavorite={currentFavorite === sym}
+          currentFavorite={currentFavorite === sym}
+          setCurrentFavorite={() => setCurrentFavorite(sym)}
         ></TileClass>
       )}
-      }
     </AppContext.Consumer>
   );
 }

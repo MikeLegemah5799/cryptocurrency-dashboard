@@ -18,6 +18,7 @@ export class AppProvider extends React.Component {
       isInfavorites: this.isInfavorites,
       confirmFavorites: this.confirmFavorites,
       currentFavorite: this.currentFavorite,
+      setCurrentFavorite: this.setCurrentFavorite,
       setFilteredCoins: this.setFilteredCoins
     };
   }
